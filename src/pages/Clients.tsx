@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useClients } from "../context/ClientsContext";
 import { Link } from "react-router-dom";
 
@@ -6,7 +6,6 @@ const Clients: React.FC = () => {
   const { clients, removeClient, updateClientStatus } = useClients();
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  // Функция фильтрации клиентов по имени, фамилии и типу (клиент или тренер)
   const filteredClients = clients.filter((client) => {
     const fullName = `${client.name} ${client.surname}`.toLowerCase();
     const searchQuery = searchTerm.toLowerCase();
@@ -25,9 +24,9 @@ const Clients: React.FC = () => {
     );
 
     if (daysLeft <= 7 && daysLeft >= 0) {
-      return "text-red-600 font-bold"; // Подсветка красным
+      return "text-red-600 font-bold"; 
     }
-    return "text-gray-700"; // Обычный стиль
+    return "text-gray-700"; 
   };
 
   return (
@@ -37,7 +36,7 @@ const Clients: React.FC = () => {
           Список користувачів
         </h1>
 
-        {/* Поле поиска */}
+  
         <div className="mb-8 flex justify-center">
           <input
             type="text"
@@ -48,7 +47,7 @@ const Clients: React.FC = () => {
           />
         </div>
 
-        {/* Список клиентов */}
+       
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {filteredClients.map((client) => (
             <div
@@ -88,7 +87,7 @@ const Clients: React.FC = () => {
                   onClick={() => updateClientStatus(client.id)}
                   className="bg-blue-700 text-white py-1 px-4 rounded-lg hover:bg-blue-600 focus:outline-none mb-4"
                 >
-                  Поменять статус
+                  Змінити статус
                 </button>
 
                 <p className="mt-2 text-md text-gray-700">

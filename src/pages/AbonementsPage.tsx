@@ -1,4 +1,3 @@
-import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
@@ -121,7 +120,6 @@ const AbonementsPage = (props: Props) => {
               {tier.description}
             </p>
             <ul
-              role="list"
               className={classNames(
                 tier.featured ? "text-gray-300" : "text-gray-600",
                 "mt-8 space-y-3 text-sm sm:mt-10"
